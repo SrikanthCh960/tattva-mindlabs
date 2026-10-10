@@ -4,7 +4,7 @@ This repository contains the complete website, including the updated About Tattv
 
 ## 1. Run on your computer
 
-Install Node.js 24.15 or newer in the 24.x series, with npm. This also satisfies the included test tools. Clone the repository or extract the project, open a terminal in the `tattva-mindlabs` folder, and run:
+Install Node.js 24.6.0 or newer in the 24.x series, with npm. The included `.nvmrc` pins 24.6.0, and the lockfile's test dependencies support that version. Clone the repository or extract the project, open a terminal in the `tattva-mindlabs` folder, and run:
 
 ```sh
 npm ci

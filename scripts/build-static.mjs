@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const cli = fileURLToPath(new URL('../node_modules/next/dist/bin/next', import.meta.url));
-const result = spawnSync(process.execPath, [cli, 'build'], {
+const result = spawnSync(process.execPath, [cli, 'build', '--webpack'], {
   cwd: root,
   env: { ...process.env, TATTVA_STATIC_EXPORT: '1' },
   stdio: 'inherit',

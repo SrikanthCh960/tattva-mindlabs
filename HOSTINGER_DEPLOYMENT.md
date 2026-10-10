@@ -7,7 +7,7 @@ Use Hostinger's Node.js Web App GitHub integration with the repository `Srikanth
 | Branch | `main` |
 | Framework | Next.js |
 | Root directory | Repository root (`./`) |
-| Node.js | 24.x; use 24.15.0 or newer |
+| Node.js | 24.x; compatible with Hostinger's 24.6.0 runtime |
 | Package manager | npm |
 | Build command | `npm run build` |
 | Start command | `npm start` |
@@ -17,6 +17,8 @@ Use Hostinger's Node.js Web App GitHub integration with the repository `Srikanth
 | Environment variables | No application secrets or `.env` file are required |
 
 The build prepares a standalone Next.js server and copies `public/` and `.next/static/` into it so the website's photos, logos, fonts, CSS and JavaScript are included.
+
+Production builds explicitly use Webpack, enable its memory optimizations and limit page generation to two workers. These settings reduce build resource use on managed hosting. The test environment is pinned to `jsdom` 29.1.1, and the lockfile supports Node 24.6.0. Changing the `engines` declaration alone does not change dependency requirements.
 
 Install build dependencies as well as runtime dependencies. Tailwind's PostCSS plugin and TypeScript are needed during the build. A clean local check is:
 

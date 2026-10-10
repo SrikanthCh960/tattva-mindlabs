@@ -20,7 +20,7 @@ npm test
 npm run build
 ```
 
-Use Node.js 24.15 or newer within the 24.x release line. The default build outputs `.next/standalone/`, including the production server, images, fonts and compiled assets. Run `npm start` after building. See [HOSTINGER_DEPLOYMENT.md](HOSTINGER_DEPLOYMENT.md) for GitHub deployment settings.
+Use Node.js 24.6.0 or newer within the 24.x release line. The included `.nvmrc` pins Hostinger's tested runtime, 24.6.0. Production builds use Webpack with memory optimizations and two page-generation workers. The default build outputs `.next/standalone/`, including the production server, images, fonts and compiled assets. Run `npm start` after building. See [HOSTINGER_DEPLOYMENT.md](HOSTINGER_DEPLOYMENT.md) for GitHub deployment settings.
 
 For static hosting, run `npm run build:static` and serve `out/`. The existing Sites configuration in `.openai/hosting.json` refers to this static output. Private review metadata is set to `noindex, nofollow` in `app/layout.tsx`; update the canonical domain and indexing policy when preparing the approved public launch.
 
