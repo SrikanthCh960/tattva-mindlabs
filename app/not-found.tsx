@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <section className="section not-found"><div className="container narrow centered"><p className="eyebrow">404 / A different path</p><h1>Let’s find your<br/><em>way back.</em></h1><p>This page isn’t here. Return home or explore the practices available at Tattva.</p><div className="button-row"><Link href="/" className="button">Return home</Link><Link href="/services/" className="button button-outline">Explore practices</Link></div></div></section>}

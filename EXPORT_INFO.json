@@ -1,0 +1,10 @@
+{
+  "project": "Tattva Mindlabs",
+  "source_commit": "f50fcc111441a1a0fc711746d34119fc0970be95",
+  "exported_at_utc": "2026-10-10T10:35:00.981206+00:00",
+  "source_files": 157,
+  "static_files": 222,
+  "source_folder": "tattva-mindlabs",
+  "static_export_folder": "tattva-mindlabs/out",
+  "git_history_included": false
+}

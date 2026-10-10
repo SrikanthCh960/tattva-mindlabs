@@ -1,0 +1,42 @@
+import {afterEach, expect, it} from 'vitest';
+import {cleanup, render, screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {VolunteerForm} from '@/components/volunteer-form';
+
+afterEach(cleanup);
+
+it('requires complete details and contact consent, then creates a reviewable handoff to the correct team', async () => {
+  render(<VolunteerForm/>);
+  const user = userEvent.setup();
+  const review = screen.getByRole('button', {name: 'Review my interest'});
+  await user.click(review);
+  expect(screen.queryByRole('link', {name: 'Continue on WhatsApp'})).toBeNull();
+  await user.type(screen.getByLabelText(/Full name/), 'Anjali Rao');
+  await user.type(screen.getByLabelText(/Mobile number/), '+91 99887 76655');
+  await user.type(screen.getByLabelText(/Email address/), 'anjali@example.com');
+  await user.type(screen.getByLabelText(/^City/), 'Hyderabad');
+  await user.selectOptions(screen.getByLabelText(/Where would you like/), 'Events and programme support');
+  await user.selectOptions(screen.getByLabelText(/Your availability/), 'Weekends');
+  await user.selectOptions(screen.getByLabelText(/How would you prefer/), 'In person in Hyderabad, if available');
+  await user.type(screen.getByLabelText(/A little about you/), 'Event coordination and Telugu communication.');
+  await user.click(review);
+  expect(screen.queryByText('Your message is ready.')).toBeNull();
+  await user.click(screen.getByRole('checkbox'));
+  await user.click(review);
+  expect(screen.getByText(/Nothing has been sent yet/)).toBeTruthy();
+  const whatsapp = new URL((screen.getByRole('link', {name: 'Continue on WhatsApp'}) as HTMLAnchorElement).href);
+  expect(whatsapp.host).toBe('wa.me');
+  expect(whatsapp.pathname).toBe('/919014428518');
+  const message = whatsapp.searchParams.get('text');
+  for (const value of ['Anjali Rao', '+91 99887 76655', 'anjali@example.com', 'Hyderabad', 'Events and programme support', 'Weekends', 'Event coordination and Telugu communication.']) expect(message).toContain(value);
+  const email = new URL((screen.getByRole('link', {name: 'Open email'}) as HTMLAnchorElement).href);
+  expect(email.pathname).toBe('tattvamindlabs2k@gmail.com');
+  expect(email.searchParams.get('body')).toBe(message);
+  expect(email.searchParams.get('subject')).toContain('Volunteering');
+  await user.type(screen.getByLabelText(/^City/), ' region');
+  expect(screen.queryByText('Your message is ready.')).toBeNull();
+  await user.click(review);
+  expect(screen.getByText('Your message is ready.')).toBeTruthy();
+  await user.click(screen.getByRole('checkbox'));
+  expect(screen.queryByRole('link', {name: 'Continue on WhatsApp'})).toBeNull();
+});

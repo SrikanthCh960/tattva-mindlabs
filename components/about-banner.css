@@ -1,0 +1,5 @@
+.about-banner .contact-banner-media img{object-position:center 68%}
+.about-banner .contact-banner-copy .eyebrow{font-size:14px}
+@media(min-width:1800px){.about-banner .contact-banner-content{min-height:30vw}}
+@media(min-width:761px) and (max-width:1100px){.about-banner .contact-banner-media img{object-position:65% 68%}}
+@media(max-width:760px){.about-banner .contact-banner-media{aspect-ratio:2/1}.about-banner .contact-banner-media img{object-position:center}}
