@@ -1,6 +1,6 @@
 # Tattva Mindlabs
 
-A Next.js App Router website based on the supplied **Tattva Mindlabs.docx** and gold logo. Built for a private client review using static export, with reusable page components and all editorial content in source control.
+A Next.js App Router website based on the supplied **Tattva Mindlabs.docx** and gold logo, with reusable page components and all editorial content in source control. The default production build creates a standalone Node.js application for Hostinger; a static export is also available.
 
 ## Included
 
@@ -20,7 +20,9 @@ npm test
 npm run build
 ```
 
-The build outputs `out/`. The hosting configuration and project identity are in `.openai/hosting.json`. Private review metadata is set to `noindex, nofollow` in `app/layout.tsx`; update the canonical domain and indexing policy when preparing the approved public launch.
+Use Node.js 24.15 or newer within the 24.x release line. The default build outputs `.next/standalone/`, including the production server, images, fonts and compiled assets. Run `npm start` after building. See [HOSTINGER_DEPLOYMENT.md](HOSTINGER_DEPLOYMENT.md) for GitHub deployment settings.
+
+For static hosting, run `npm run build:static` and serve `out/`. The existing Sites configuration in `.openai/hosting.json` refers to this static output. Private review metadata is set to `noindex, nofollow` in `app/layout.tsx`; update the canonical domain and indexing policy when preparing the approved public launch.
 
 ## Content and imagery
 

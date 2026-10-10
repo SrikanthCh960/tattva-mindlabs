@@ -1,10 +1,10 @@
 # Tattva Mindlabs: local setup and Git
 
-This download contains the complete website from the latest published version, including the updated About Tattva homepage section, all pages, images, fonts, animations, forms and tests.
+This repository contains the complete website, including the updated About Tattva homepage section, all pages, images, fonts, animations, forms and tests.
 
 ## 1. Run on your computer
 
-Install Node.js 22.22.2 or newer in the 22.x series, or Node.js 24.15 or newer in the 24.x series, with npm. These versions also satisfy the included test tools. Extract the ZIP, open a terminal in the `tattva-mindlabs` folder, and run:
+Install Node.js 24.15 or newer in the 24.x series, with npm. This also satisfies the included test tools. Clone the repository or extract the project, open a terminal in the `tattva-mindlabs` folder, and run:
 
 ```sh
 npm ci
@@ -21,7 +21,9 @@ The application uses local images and fonts. No API key or environment file is r
 npm run build
 ```
 
-The production files are written to `out/`. A copy of the latest built static site is already included in this download. Because this project uses Next.js static export, serve `out/` for production instead of running `npm start`.
+The default production build creates a standalone Node.js server in `.next/standalone/`. It includes the local images, fonts, JavaScript and CSS. Start it with `npm start`. For Hostinger GitHub deployment, see [HOSTINGER_DEPLOYMENT.md](HOSTINGER_DEPLOYMENT.md).
+
+To generate a static site instead, run `npm run build:static`. This writes the production files to `out/`; serve that directory directly. The static export does not use `npm start`.
 
 If Python 3 is installed, you can preview the included static site with:
 
@@ -70,6 +72,6 @@ git push
 | `lib/navigation.ts` | Navigation content |
 | `public/media/` | All website photos, banners, logos and service images |
 | `public/fonts/` | Local fonts |
-| `next.config.ts` | Static export configuration |
+| `next.config.ts` | Standalone server and optional static export configuration |
 
 The original `README.md` contains project notes, content context and verification boundaries. `EXPORT_INFO.json` records the source revision used for this download. The existing private-review indexing settings remain in `app/layout.tsx`; update the domain and indexing policy when preparing an approved public launch.

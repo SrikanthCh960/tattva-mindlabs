@@ -2,10 +2,14 @@
   "name": "tattva-mindlabs",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=24.15.0 <25"
+  },
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0 --port 4173",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build && node scripts/prepare-standalone.mjs",
+    "build:static": "node scripts/build-static.mjs",
+    "start": "node .next/standalone/server.js",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
