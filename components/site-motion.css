@@ -1,0 +1,52 @@
+/* Motion only: preserve existing spacing, colours, typography and image crops. */
+.tattva-motion-pending { opacity: 0; }
+
+#main .button {
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease,
+    transform 140ms cubic-bezier(.22, 1, .36, 1);
+}
+#main .text-link::after {
+  transition: translate 180ms cubic-bezier(.22, 1, .36, 1);
+}
+.modern-site-header .mega-menu-content[data-state=open] {
+  animation-duration: 180ms;
+  animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+.modern-site-header .mega-menu-trigger svg,
+.modern-site-header .mega-menu-trigger::after {
+  transition-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+.modern-mobile-sheet[data-slot=sheet-content][data-state=open] {
+  animation-duration: 260ms;
+  animation-timing-function: cubic-bezier(.32, .72, 0, 1);
+}
+.modern-mobile-sheet[data-slot=sheet-content][data-state=closed] {
+  animation-duration: 170ms;
+  animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+[data-slot=dialog-content][data-state=open] {
+  animation-duration: 220ms;
+  animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+[data-slot=dialog-content][data-state=closed] { animation-duration: 150ms; }
+
+@media (hover: hover) and (pointer: fine) {
+  #main .text-link:hover::after { translate: 3px 0; }
+}
+
+html[data-motion-input=keyboard] :is(.mega-menu-content, [data-slot=sheet-content],
+  [data-slot=sheet-overlay], [data-slot=dialog-content], [data-slot=dialog-overlay],
+  [data-slot=accordion-content]) { animation-duration: .01ms !important; }
+html[data-motion-input=keyboard] #main .button:active { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tattva-motion-pending { opacity: 1 !important; }
+  #main .text-link::after { translate: none !important; }
+  :is(#main .button, #main .text-link::after, .mega-menu-trigger svg,
+    .mega-menu-trigger::after) { transition-duration: .01ms !important; }
+  :is(.mega-menu-content, [data-slot=sheet-content], [data-slot=sheet-overlay],
+    [data-slot=dialog-content], [data-slot=dialog-overlay], [data-slot=accordion-content]) {
+    animation-duration: .01ms !important;
+    animation-delay: 0s !important;
+  }
+}
