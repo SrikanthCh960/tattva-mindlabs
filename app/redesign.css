@@ -22,3 +22,51 @@ html.lenis{scroll-behavior:auto!important}
 
 /* Keep the full head in the riverside portrait at every page size. */
 .antaraa-photo img,.antaraa-hero-image img,.about-story .story-image img{object-position:center top;transform-origin:center top}
+
+/* Compact only the homepage hero by approximately 15%; retain its content and imagery. */
+@media(min-width:761px){
+  .editorial-hero{min-height:672px;height:min(765px,calc(85svh - 107px))}
+  .editorial-hero-inner{min-height:592px;height:calc(100% - 80px);padding:28px 0}
+  .editorial-hero .eyebrow{margin-bottom:20px}
+  .editorial-hero .hero-description{margin:20px 0 24px}
+  .editorial-hero .hero-origin{margin-top:24px}
+  .editorial-hero .hero-bottom-bar{height:80px}
+}
+@media(min-width:761px) and (max-width:1200px){
+  .editorial-hero{min-height:646px}
+  .editorial-hero-inner{min-height:566px}
+}
+@media(min-width:761px) and (max-width:950px){
+  .editorial-hero-inner{padding:20px 0 16px}
+}
+@media(max-width:760px){
+  .editorial-hero{min-height:884px}
+  .editorial-hero-inner{min-height:804px}
+  .editorial-hero-media{height:485px}
+}
+@media(max-width:400px){
+  .editorial-hero{min-height:927px}
+  .editorial-hero-inner{min-height:847px}
+  .editorial-hero-media{height:459px}
+}
+
+/* Keep the founder's name clear of the portrait and on one line. */
+.editorial-hero .hero-nameplate{
+  top:24px;bottom:auto;left:auto;right:0;
+  width:max-content;max-width:none;padding:8px 18px;
+}
+.editorial-hero .hero-nameplate span{
+  white-space:nowrap;font-size:clamp(28px,2.5vw,36px);
+}
+@media(max-width:760px){
+  .editorial-hero .hero-nameplate{
+    position:relative;top:auto;bottom:auto;left:0;right:auto;
+    margin-top:14px;padding:0 0 0 18px;
+  }
+  .editorial-hero .hero-nameplate span{font-size:clamp(27px,5.5vw,34px)}
+}
+@media(max-width:400px){
+  .editorial-hero .hero-nameplate{
+    position:absolute;bottom:24px;margin-top:0;
+  }
+}

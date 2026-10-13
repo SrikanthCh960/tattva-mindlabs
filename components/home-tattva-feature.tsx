@@ -14,13 +14,13 @@ export function HomeTattvaFeature() {
           <span className="launch-label">MIND · BODY · ENERGY · SOUL</span>
           <h3>TATTVA</h3>
           <p className="antaraa-subtitle">Where self-understanding meets everyday life.</p>
-          <p>Founded by Archana Nanduri, Tattva Mindlabs brings together Indian wisdom and modern psychological perspectives. Through programmes, reflective practices and shared experiences, we invite you to understand yourself more deeply and bring greater awareness into the way you live.</p>
+          <p>Founded by Dr Archana Nanduri, Tattva Mindlabs brings together Indian wisdom and modern psychological perspectives. Through workshops, reflective practices and shared experiences, we invite you to understand yourself more deeply and bring greater awareness into the way you live.</p>
           <Link className="button button-cream" href="/about/">About Us</Link>
           <span className="small-note">Discover our philosophy and the person behind it.</span>
         </div>
         <div className="antaraa-photo">
-          <Image src="/media/archana-riverside.webp" alt="Archana Nanduri, founder of Tattva Mindlabs, in a quiet riverside setting" fill sizes="(max-width:760px) 100vw, 50vw"/>
-          <span className="image-annotation">Archana Nanduri · Founder, Tattva Mindlabs</span>
+          <Image src="/media/archana-riverside.webp" alt="Dr Archana Nanduri, founder of Tattva Mindlabs, in a quiet riverside setting" fill sizes="(max-width:760px) 100vw, 50vw"/>
+          <span className="image-annotation">Dr Archana Nanduri · Founder, Tattva Mindlabs</span>
         </div>
       </div>
     </div>

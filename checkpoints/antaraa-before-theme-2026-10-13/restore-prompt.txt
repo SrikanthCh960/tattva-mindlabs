@@ -1,0 +1,1 @@
+Restore only ANTARAA to checkpoint ANTARAA-BEFORE-THEME-2026-10-13-V21. Keep all other website updates unchanged, including Workshop wording, Dr Archana Nanduri, the header, and the homepage banner. Publish only to the ChatGPT website. Do not push to GitHub.

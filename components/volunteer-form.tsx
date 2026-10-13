@@ -7,7 +7,7 @@ import {Button} from '@/components/ui/button';
 import {contact} from '@/lib/content';
 
 const initialDetails = {name: '', phone: '', email: '', city: '', interest: '', availability: '', format: 'Open to discussion', message: ''};
-const areas = ['Events and programme support', 'Community coordination', 'Content, design and communication', 'Administration and logistics', 'Other skills / open to guidance'];
+const areas = ['Events and workshop support', 'Community coordination', 'Content, design and communication', 'Administration and logistics', 'Other skills / open to guidance'];
 
 export function VolunteerForm() {
   const [details, setDetails] = useState(initialDetails);

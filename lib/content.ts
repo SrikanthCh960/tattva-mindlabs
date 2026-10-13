@@ -38,16 +38,16 @@ export const solutions = [
 ];
 
 export const interviews = [
-  {id:'fzv9hIs_T9o',title:'Candle practices & the energy of home',category:'Rituals & reflection',source:'ManamTV Hyderabad Health',image:'interview-candles',description:'Archana shares her spiritual perspectives on candle practices, intention and the home environment.'},
+  {id:'fzv9hIs_T9o',title:'Candle practices & the energy of home',category:'Rituals & reflection',source:'ManamTV Hyderabad Health',image:'interview-candles',description:'Dr Archana shares her spiritual perspectives on candle practices, intention and the home environment.'},
   {id:'MTLHPN_kEYg',title:'Small habits. A more mindful life.',category:'Personal growth',source:'QubeTV Health',image:'interview-habits',description:'A conversation about making time for reflection and building consistent everyday habits.'},
-  {id:'fPwC2nDXNJ0',title:'Crystals, chakras & visualisation',category:'Energy practices',source:'Kiran TV Life',image:'interview-crystals',description:'An introduction to Archana’s perspectives on crystals, spiritual traditions and intention.'},
+  {id:'fPwC2nDXNJ0',title:'Crystals, chakras & visualisation',category:'Energy practices',source:'Kiran TV Life',image:'interview-crystals',description:'An introduction to Dr Archana’s perspectives on crystals, spiritual traditions and intention.'},
 ];
 
 export const faqs = [
   {q:'Where should I begin?',a:'You can explore our practices or start with a conversation. Share what interests you, and the team will explain the available options and help you choose a next step.'},
-  {q:'What is ANTARAA?',a:'ANTARAA is Tattva Mindlabs’ signature inner-transformation programme. Its launch is planned for 20 December. You can express interest to receive details about the format, schedule and participation.'},
+  {q:'What is ANTARAA?',a:'ANTARAA is Tattva Mindlabs’ signature inner-transformation workshop. Its launch is planned for 20 December. You can express interest to receive details about the format, schedule and participation.'},
   {q:'Are these practices a replacement for therapy?',a:'No. Tattva’s holistic practices are complementary experiences for self-exploration and personal wellbeing. They do not replace psychological therapy, diagnosis or medical care.'},
-  {q:'Are sessions online or in person?',a:'Please share your preferred format when you enquire. The team will confirm which options are available for your chosen practice or programme.'},
+  {q:'Are sessions online or in person?',a:'Please share your preferred format when you enquire. The team will confirm which options are available for your chosen practice or workshop.'},
   {q:'How are appointments confirmed?',a:'Prepare your enquiry and send it through WhatsApp or email. The team will respond with availability, fees and next steps. Your appointment is confirmed only after you receive their confirmation.'},
 ];
 

@@ -1,0 +1,21 @@
+{
+  "image_generation_mode": "built-in image_gen.imagegen",
+  "image_prompt": "Use case: photorealistic-natural. Asset type: a wide premium website background image for ANTARAA, an Indian inner-transformation workshop. Create a peaceful cinematic riverside landscape at first light, with delicate mist floating over still water, soft distant forest silhouettes and graceful natural shoreline grasses near the right edge. A restrained, elegant palette of deep forest green, muted sage, pale celadon and soft ivory, with a subtle warm dawn glow in the upper-right. Wide 16:9 landscape, high resolution and sharp natural detail, fine photographic texture. The LEFT TWO THIRDS must be calm, atmospheric negative space with low detail for website headings and buttons; place the prettiest shoreline and glimmering water towards the RIGHT and lower edge. Organic, quiet and sophisticated, no dramatic fantasy effects. No people, no faces, no buildings, no candles, no crystals, no text, no letters, no logos, no watermark. This is only a background photograph, not a website mockup.",
+  "backgrounds": [
+    "public/media/antaraa-misty-river.webp",
+    "public/media/antaraa-misty-river-960.webp"
+  ],
+  "font": {
+    "family": "Antaraa Handwritten",
+    "local_asset": "public/fonts/antaraa-handwritten.woff",
+    "license": "SIL Open Font License",
+    "license_file": "public/fonts/Allura-OFL.txt",
+    "official_source": "https://github.com/google/fonts/tree/main/ofl/allura",
+    "source_family": "Allura",
+    "processing": "Self-hosted Latin subset with a unique derivative family name; original license and notices retained."
+  },
+  "original_portraits_preserved": [
+    "public/media/archana-hero-sharp.webp",
+    "public/media/archana-riverside.webp"
+  ]
+}

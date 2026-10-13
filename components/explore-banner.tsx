@@ -11,7 +11,7 @@ export function ExploreBanner() {
       <div className="contact-banner-copy">
         <p className="eyebrow">Explore · Pause. Listen. Reflect.</p>
         <h1 id="explore-banner-heading">Conversations that open<br/><em>a new perspective.</em></h1>
-        <p>Explore Archana’s Telugu interviews on personal growth, everyday habits and spiritual practices. Take a moment to listen, then discover what resonates with you.</p>
+        <p>Explore Dr Archana’s Telugu interviews on personal growth, everyday habits and spiritual practices. Take a moment to listen, then discover what resonates with you.</p>
       </div>
     </div>
   </section>;

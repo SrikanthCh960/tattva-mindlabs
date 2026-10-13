@@ -32,17 +32,12 @@ export function Header() {
 
   return <>
     <a className="skip-link" href="#main">Skip to content</a>
-    <div className="announcement modern-announcement">
-      <span className="modern-announcement-note">Mind · Body · Energy · Soul</span>
-      <Link href="/programs/antaraa/">Discover ANTARAA · Launch planned for 20 December</Link>
-      <Link href="/contact/?type=consultation#enquiry" className="modern-contact-link">Book a consultation</Link>
-    </div>
     <header className="site-header modern-site-header">
       <div className="container modern-header-container">
         <NavigationMenu.Root className="mega-navigation" aria-label="Main navigation" value={active} onValueChange={setActive} delayDuration={160} skipDelayDuration={250}>
           <NavigationMenu.List className="mega-menu-list">
-            {menuGroups.map((group, index) => <Fragment key={group.id}>
-              {index === 3 && <li className="masthead-brand"><Brand/></li>}
+            <li className="masthead-brand"><Brand/></li>
+            {menuGroups.map(group => <Fragment key={group.id}>
               <NavigationMenu.Item value={group.id} className="mega-menu-item">
                 {group.kind === 'link' ? <NavigationMenu.Link asChild onSelect={closeMenus}>
                   <Destination href={group.href} className="mega-menu-trigger mega-menu-direct-link" aria-current={isCurrent(group.href) ? 'page' : undefined} data-current={isCurrent(group.href) ? 'true' : undefined} onPointerEnter={() => setActive('')} onFocus={() => setActive('')}>{group.label}</Destination>
@@ -84,13 +79,13 @@ export function Header() {
           </NavigationMenu.List>
         </NavigationMenu.Root>
         <div className="mobile-masthead">
+          <div className="masthead-brand mobile-header-brand"><Brand/></div>
           <Link href="/contact/" className="mobile-contact-icon" aria-label="Contact Tattva Mindlabs"><MessageCircle size={23}/></Link>
-          <div className="masthead-brand mobile-centred-brand"><Brand/></div>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild><button className="modern-menu-toggle" type="button" aria-label="Open navigation"><Menu size={25}/></button></SheetTrigger>
             <SheetContent side="right" className="mobile-sheet modern-mobile-sheet" data-lenis-prevent>
               <SheetTitle className="sr-only">Tattva navigation</SheetTitle>
-              <SheetDescription className="sr-only">Explore wellbeing practices, programmes, products and volunteering.</SheetDescription>
+              <SheetDescription className="sr-only">Explore wellbeing practices, workshops, products and volunteering.</SheetDescription>
               <Brand/>
               <nav aria-label="Mobile navigation">
                 <Accordion type="single" collapsible className="mobile-menu-accordion">

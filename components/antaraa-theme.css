@@ -1,0 +1,134 @@
+/* ANTARAA's independent visual identity. All selectors are scoped to its surfaces. */
+@font-face{
+  font-family:"Antaraa Handwritten";
+  src:url("/fonts/antaraa-handwritten.woff") format("woff");
+  font-style:normal;font-weight:400;font-display:swap;
+}
+
+.antaraa-promo .antaraa-promo-name,
+#antaraa .antaraa-copy h3,
+.antaraa-workshop-page .antaraa-hero h1,
+.mega-feature[href="/programs/antaraa/"] .mega-feature-title{
+  font-family:"Antaraa Handwritten",cursive;
+  font-weight:400;letter-spacing:0;text-transform:lowercase;line-height:1.2;
+}
+.antaraa-promo .antaraa-promo-name::first-letter,
+#antaraa .antaraa-copy h3::first-letter,
+.antaraa-workshop-page .antaraa-hero h1::first-letter,
+.mega-feature[href="/programs/antaraa/"] .mega-feature-title::first-letter{
+  text-transform:uppercase;
+}
+.mega-feature[href="/programs/antaraa/"] .mega-feature-title{font-size:42px;color:#254e3f}
+
+/* Homepage invitation: a forest-green canvas, with the approved portrait retained. */
+.antaraa-promo-section .antaraa-promo{
+  background-color:#183d33;
+  background-image:linear-gradient(90deg,#14392ff2 0%,#173e33df 48%,#183e33a8 100%),url("/media/antaraa-misty-river.webp");
+  background-position:center;background-size:cover;
+  border-color:#a5bd9b70;color:#f4f4e9;
+  box-shadow:0 20px 55px #123a2420;
+}
+.antaraa-promo-section .antaraa-promo::before{display:none}
+.antaraa-promo .antaraa-promo-eyebrow{color:#d2dfc2}
+.antaraa-promo .antaraa-promo-message h2 em{color:#d0dfbb}
+.antaraa-promo .antaraa-promo-founder{color:#f3f1df}
+.antaraa-promo .antaraa-promo-founder>span{color:#c7d7c0}
+.antaraa-promo .antaraa-promo-name{font-size:clamp(62px,5.8vw,90px);color:#f0e7c4;margin-bottom:9px}
+.antaraa-promo .antaraa-promo-description{color:#d9e4d4}
+.antaraa-promo .antaraa-promo-button.button{background:#e3ebd7;border-color:#e3ebd7;color:#193d31}
+.antaraa-promo .antaraa-promo-details{color:#e4eddb;text-decoration-color:#bdcdb0a6}
+.antaraa-promo .antaraa-promo-portrait{background:#21463b}
+.antaraa-promo .antaraa-promo-portrait::after{
+  background:linear-gradient(90deg,#183d33,transparent 32%),linear-gradient(0deg,#183d3333,transparent 25%);
+}
+
+/* Workshop overview: scope by ID so the About Tattva section keeps its existing look. */
+#antaraa.antaraa-section{background:#edf1e7}
+#antaraa .section-heading .eyebrow{color:#496b58}
+#antaraa .section-heading h2{color:#234535}
+#antaraa .section-heading h2 em{color:#567961}
+#antaraa .antaraa-feature{
+  background-color:#183d33;
+  background-image:linear-gradient(90deg,#14392feb 0%,#173e33d9 55%,#183e3380 100%),url("/media/antaraa-misty-river.webp");
+  background-position:center;background-size:cover;
+  border:1px solid #8baa7955;border-radius:20px;overflow:hidden;
+  box-shadow:0 24px 60px #16352314;
+}
+#antaraa .antaraa-copy h3{font-size:clamp(84px,8.8vw,126px);color:#f0e7c4}
+#antaraa .launch-label{color:#e1e9d4;border-color:#aec89a77}
+#antaraa .antaraa-copy .antaraa-subtitle{color:#eef1df}
+#antaraa .antaraa-copy>p:not(.antaraa-subtitle){color:#d6e1ce}
+#antaraa .antaraa-copy .small-note{color:#c1d0b8}
+#antaraa .antaraa-copy .button-cream{background:#e3ebd7;border-color:#e3ebd7;color:#193d31}
+
+/* The complete ANTARAA page inherits its own colour tokens, never Tattva's header/footer. */
+.antaraa-workshop-page{
+  --ivory:#f2f4eb;--paper:#e6ede0;--ink:#234335;--muted:#526c5e;
+  --rust:#567961;--rust-dark:#355c46;--gold:#cfc29a;--line:#bfcebb;--dark:#183d33;
+  background:var(--ivory);color:var(--ink);
+}
+.antaraa-workshop-page .antaraa-hero{
+  max-width:none;background-color:#183d33;
+  background-image:linear-gradient(90deg,#14392ff2 0%,#173e33da 52%,#173e3399 100%),url("/media/antaraa-misty-river.webp");
+  background-position:center;background-size:cover;color:#f4f3e8;
+}
+.antaraa-workshop-page .antaraa-hero .back-link{color:#d4e0c9}
+.antaraa-workshop-page .antaraa-hero .eyebrow{color:#d0dfbb;font-size:12px;letter-spacing:.13em}
+.antaraa-workshop-page .antaraa-hero h1{font-size:clamp(92px,9.4vw,136px);line-height:1.12;color:#f0e7c4}
+.antaraa-workshop-page .programme-tagline{color:#f1f1e2}
+.antaraa-workshop-page .antaraa-hero-copy>p:not(.eyebrow):not(.programme-tagline){color:#d7e2d0;font-size:16px;line-height:1.85}
+.antaraa-workshop-page .antaraa-hero .launch-label{border-color:#adc49888;color:#e8edd8}
+.antaraa-workshop-page .antaraa-hero .button-cream{background:#e3ebd7;border-color:#e3ebd7;color:#193d31}
+.antaraa-workshop-page .antaraa-hero-image{overflow:hidden}
+.antaraa-workshop-page .antaraa-hero-image::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,#183d3380,transparent 35%),linear-gradient(0deg,#183d3326,transparent 30%);
+}
+.antaraa-workshop-page .section .eyebrow{color:#496b58}
+.antaraa-workshop-page .split-editorial p{font-size:16px;line-height:1.85;color:#526c5e}
+.antaraa-workshop-page .dimensions-section{background:#e5ecdf}
+.antaraa-workshop-page .dimension-grid article{
+  padding:28px 24px;background:#f5f6ee;border-color:#a0b896;border-radius:2px;
+}
+.antaraa-workshop-page .dimension-grid svg,
+.antaraa-workshop-page .dimension-grid span{color:#496b58}
+.antaraa-workshop-page .dimension-grid p{font-size:14px;color:#526c5e}
+.antaraa-workshop-page .programme-interest{
+  position:relative;isolation:isolate;background-color:#183d33;
+  background-image:linear-gradient(#14392feb,#173e33d9),url("/media/antaraa-misty-river.webp");
+  background-size:cover;background-position:center 72%;color:#f4f3e8;
+}
+.antaraa-workshop-page .programme-interest .eyebrow{color:#d0dfbb}
+.antaraa-workshop-page .programme-interest h2 em{color:#d0dfbb}
+.antaraa-workshop-page .programme-interest p:not(.eyebrow){color:#d7e2d0}
+.antaraa-workshop-page .programme-interest .button{background:#e3ebd7;border-color:#e3ebd7;color:#193d31}
+.antaraa-workshop-page .programme-interest small{color:#c6d5bb;font-size:12px}
+.antaraa-workshop-page a:focus-visible,
+.antaraa-promo a:focus-visible{outline:2px solid #d4dda9;outline-offset:5px}
+
+@media(hover:hover) and (pointer:fine){
+  .antaraa-promo .antaraa-promo-button.button:hover,
+  #antaraa .antaraa-copy .button-cream:hover,
+  .antaraa-workshop-page .antaraa-hero .button-cream:hover,
+  .antaraa-workshop-page .programme-interest .button:hover{
+    background:#f2f3e7;border-color:#f2f3e7;color:#193d31;
+    box-shadow:0 6px 24px #cfe3c125;
+  }
+  .antaraa-promo .antaraa-promo-details:hover{color:#fffdf3;text-decoration-color:#fffdf3}
+}
+@media(max-width:760px){
+  .antaraa-workshop-page .antaraa-hero h1{font-size:clamp(80px,16vw,112px)}
+  .antaraa-workshop-page .antaraa-hero-copy>p:not(.eyebrow):not(.programme-tagline){font-size:16px}
+  .antaraa-workshop-page .dimension-grid article{padding:24px 22px}
+  .antaraa-promo-section .antaraa-promo,
+  #antaraa .antaraa-feature,
+  .antaraa-workshop-page .antaraa-hero,
+  .antaraa-workshop-page .programme-interest{
+    background-image:linear-gradient(110deg,#14392feb,#173e33cb),url("/media/antaraa-misty-river-960.webp");
+  }
+}
+@media(max-width:600px){
+  .antaraa-promo .antaraa-promo-name{font-size:clamp(60px,16vw,80px)}
+  .antaraa-promo .antaraa-promo-portrait::after{background:linear-gradient(180deg,#183d33,transparent 24%)}
+  #antaraa .antaraa-copy h3{font-size:clamp(78px,19vw,106px)}
+}

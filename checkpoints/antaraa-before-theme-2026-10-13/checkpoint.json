@@ -1,0 +1,38 @@
+{
+  "checkpoint": "ANTARAA-BEFORE-THEME-2026-10-13-V21",
+  "date": "2026-10-13",
+  "timezone": "Asia/Calcutta",
+  "project_id": "appgprj_6ac67cb610f4819196a0f35271719e64",
+  "site_url": "https://tattva-mindlabs.srikanth-digital2s.chatgpt.site",
+  "version_number": 21,
+  "version_id": "appgprj_6ac67cb610f4819196a0f35271719e64~appgver_83d1527b93708191964a6aa7035fefd6",
+  "source_commit": "b63213fc83c67a2dc64f90069149dac56a887aad",
+  "scope": "Restore only the ANTARAA visual theme. Preserve unrelated changes made after this checkpoint.",
+  "existing_files_to_restore_selectively": [
+    "app/layout.tsx",
+    "app/programs/antaraa/page.tsx",
+    "components/antaraa-banner.tsx"
+  ],
+  "new_theme_files": [
+    "components/antaraa-theme.css",
+    "public/fonts/antaraa-handwritten.woff",
+    "public/fonts/Allura-OFL.txt",
+    "public/media/antaraa-misty-river.webp",
+    "public/media/antaraa-misty-river-960.webp",
+    "public/media/archana-antaraa-forest.webp",
+    "components/antaraa-sticky.tsx",
+    "components/antaraa-sticky.css",
+    "tests/antaraa-sticky.test.tsx"
+  ],
+  "restore_instructions": [
+    "First checkpoint later work.",
+    "Remove only the ANTARAA theme stylesheet import from app/layout.tsx. Preserve other layout changes.",
+    "Remove only the AntaraaSticky import and <AntaraaSticky/> render from app/layout.tsx, along with its dedicated component, stylesheet and test. Preserve all unrelated layout changes.",
+    "Restore the ANTARAA page theme wrapper to its original fragment. Preserve copy, links, original portraits and later unrelated updates.",
+    "In components/antaraa-banner.tsx, restore only the portrait source to /media/archana-hero-sharp.webp from the Version 21 checkpoint. Preserve later copy and layout changes.",
+    "Remove the ANTARAA theme stylesheet; baseline styles remain in the original stylesheets. Remove new assets only if unreferenced.",
+    "Do not replace the whole Site with version 21 if other client changes were made afterwards.",
+    "Use source helper, build and publish to the same ChatGPT Site. Do not update public GitHub."
+  ],
+  "restore_prompt": "Restore only ANTARAA to checkpoint ANTARAA-BEFORE-THEME-2026-10-13-V21. Keep all other website updates unchanged, including Workshop wording, Dr Archana Nanduri, the header, and the homepage banner. Publish only to the ChatGPT website. Do not push to GitHub."
+}

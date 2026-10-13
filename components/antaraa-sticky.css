@@ -1,0 +1,65 @@
+.antaraa-sticky{
+  position:fixed;z-index:40;
+  right:max(24px,env(safe-area-inset-right));bottom:calc(24px + env(safe-area-inset-bottom));
+  width:min(360px,calc(100vw - 32px));max-height:calc(100svh - 48px);
+  padding:10px;overflow-y:auto;overscroll-behavior:contain;
+  border:1px solid #adc2918c;border-radius:16px;
+  background:#102d25;color:#f1efdf;box-shadow:0 16px 55px #09221842,0 3px 12px #09221825;
+  animation:antaraa-sticky-enter .24s cubic-bezier(.2,.7,.2,1) both;
+}
+.antaraa-sticky-poster{
+  position:relative;display:block;min-height:190px;overflow:hidden;isolation:isolate;
+  border-radius:9px;background:#21463b url('/media/antaraa-misty-river-960.webp') center/cover;
+  color:inherit;text-decoration:none;
+}
+.antaraa-sticky-copy{position:relative;z-index:2;width:66%;padding:17px 0 17px 18px}
+.antaraa-sticky-eyebrow{display:block;font-size:9px;line-height:1.5;letter-spacing:.07em;color:#d5e0c4}
+.antaraa-sticky-wordmark{
+  font-family:'Antaraa Handwritten',cursive;font-size:54px;line-height:1.15;font-weight:400;
+  letter-spacing:0;text-transform:lowercase;margin:5px 0 6px;color:#f0e7c4;
+}
+.antaraa-sticky-wordmark::first-letter{text-transform:uppercase}
+.antaraa-sticky-description{font-size:12px;line-height:1.5;max-width:180px;color:#e0e8d9;margin:0}
+.antaraa-sticky-founder{display:block;font-size:11px;line-height:1.5;color:#e0e8d9;margin-top:10px}
+.antaraa-sticky-portrait{position:absolute;inset:0 0 0 auto;width:55%;z-index:0}
+.antaraa-sticky-portrait img{object-fit:cover;object-position:center 8%}
+.antaraa-sticky-poster::after{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,#193d33f2 0%,#193d33e8 38%,#193d3370 57%,transparent 78%);
+}
+.antaraa-sticky-actions{display:flex;align-items:center;gap:10px;padding-top:10px}
+.antaraa-sticky-interest{
+  display:flex;align-items:center;justify-content:center;gap:7px;flex:1;min-width:0;min-height:44px;
+  padding:10px 12px;border:1px solid #e3ebd7;border-radius:6px;
+  font-size:13px;line-height:1.35;font-weight:500;text-align:center;text-decoration:none;
+  background:#e3ebd7;color:#193d31;transition:background-color .18s ease,border-color .18s ease;
+}
+.antaraa-sticky-interest svg{flex-shrink:0}
+.antaraa-sticky-close{
+  display:flex;align-items:center;justify-content:center;gap:5px;min-width:66px;min-height:44px;
+  padding:10px 4px;border:0;border-radius:6px;background:transparent;color:#f1efdf;
+  font-family:var(--font-body),sans-serif;font-size:12px;line-height:1.4;cursor:pointer;
+  transition:background-color .18s ease;
+}
+.antaraa-sticky a:focus-visible,.antaraa-sticky button:focus-visible{outline:2px solid #e6dcae;outline-offset:3px}
+@media(hover:hover) and (pointer:fine){
+  .antaraa-sticky-interest:hover{background:#f2f3e7;border-color:#f2f3e7}
+  .antaraa-sticky-close:hover{background:#ffffff12}
+}
+@media(max-width:600px){
+  .antaraa-sticky{
+    right:max(12px,env(safe-area-inset-right));bottom:calc(12px + env(safe-area-inset-bottom));
+    width:min(320px,calc(100vw - 24px));max-height:calc(100svh - 24px);border-radius:13px;
+  }
+  .antaraa-sticky-poster{min-height:150px}
+  .antaraa-sticky-copy{padding:13px 0 13px 15px}
+  .antaraa-sticky-eyebrow{display:none}
+  .antaraa-sticky-wordmark{font-size:48px;margin:0 0 4px}
+  .antaraa-sticky-description{font-size:11px;max-width:164px}
+  .antaraa-sticky-founder{font-size:10px;margin-top:7px}
+}
+@keyframes antaraa-sticky-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){
+  .antaraa-sticky{animation:none}
+  .antaraa-sticky-interest,.antaraa-sticky-close{transition:none}
+}

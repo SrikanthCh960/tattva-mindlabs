@@ -4,9 +4,9 @@ export type MenuGroup = MenuBase & ({kind: 'dropdown'; intro: string; links: {la
 
 export const menuGroups: MenuGroup[] = [
   {kind:'dropdown',id:'about',label:'About Us',href:'/about/',intro:'Meet the people and purpose behind a more conscious way of living.',
-    links:[{label:'Our philosophy',href:'/about/'},{label:'Meet Archana',href:'/about/#archana'},{label:'Awards & recognitions',href:'/#recognitions'},{label:'Volunteering',href:'/volunteering/'},{label:'Connect with us',href:'/contact/'}],
+    links:[{label:'Our philosophy',href:'/about/'},{label:'Meet Dr Archana',href:'/about/#archana'},{label:'Awards & recognitions',href:'/#recognitions'},{label:'Volunteering',href:'/volunteering/'},{label:'Connect with us',href:'/contact/'}],
     features:[
-      {title:'Meet Archana Nanduri',detail:'The person behind Tattva',href:'/about/#archana',image:'/media/archana-portrait.webp',position:'center 28%'},
+      {title:'Meet Dr Archana Nanduri',detail:'The person behind Tattva',href:'/about/#archana',image:'/media/archana-portrait.webp',position:'center 28%'},
       {title:'A journey within',detail:'Mind · Body · Energy · Soul',href:'/about/',image:'/media/archana-riverside.webp',position:'center top'},
       {title:'Be part of the community',detail:'Share your time and skills',href:'/volunteering/',image:'/media/volunteering-seva-640.webp'},
     ]},
@@ -17,10 +17,10 @@ export const menuGroups: MenuGroup[] = [
       {title:'A little inner care',detail:'Inner-child exploration',href:'/services/inner-child-womb-regression/',image:'/media/practices/inner-child-womb-regression-960.webp'},
       {title:'Movement & presence',detail:'Discover yoga',href:'/services/yoga/',image:'/media/practices/yoga-960.webp'},
     ]},
-  {kind:'dropdown',id:'programmes',label:'Programmes',href:'/programs/',intro:'Make room for reflection, experience and meaningful inner change.',
-    links:[{label:'Explore programmes',href:'/programs/'},{label:'Discover ANTARAA',href:'/programs/antaraa/'},{label:'Express your interest',href:'/contact/?type=antaraa&interest=ANTARAA#enquiry'},{label:'Workshop enquiries',href:'/contact/?type=programme#enquiry'}],
+  {kind:'dropdown',id:'programmes',label:'Workshop',href:'/programs/',intro:'Make room for reflection, experience and meaningful inner change.',
+    links:[{label:'Explore workshops',href:'/programs/'},{label:'Discover ANTARAA',href:'/programs/antaraa/'},{label:'Express your interest',href:'/contact/?type=antaraa&interest=ANTARAA#enquiry'},{label:'Workshop enquiries',href:'/contact/?type=programme#enquiry'}],
     features:[
-      {title:'ANTARAA',detail:'Our signature inner-transformation programmes',href:'/programs/antaraa/',image:'/media/archana-hero-sharp.webp',position:'center 8%'},
+      {title:'ANTARAA',detail:'Our signature inner-transformation workshops',href:'/programs/antaraa/',image:'/media/archana-hero-sharp.webp',position:'center 8%'},
       {title:'A practice of awareness',detail:'Explore individual wellbeing practices',href:'/services/',image:'/media/practices/breathwork-960.webp'},
       {title:'Start a conversation',detail:'Find your next step with the team',href:'/contact/?type=programme#enquiry',image:'/media/practices/neuro-linguistic-programming-960.webp'},
     ]},

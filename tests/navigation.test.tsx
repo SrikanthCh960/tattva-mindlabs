@@ -62,10 +62,10 @@ describe('Photographic navigation', () => {
   it('keeps panels populated on repeated hover switches and closes them over direct links', async () => {
     const {container} = render(<Header/>);
     const nav = within(screen.getByRole('navigation', {name: 'Main navigation'}));
-    expect(nav.getAllByRole('button').map(button => button.textContent)).toEqual(['About Us', 'Services', 'Programmes', 'Products']);
+    expect(nav.getAllByRole('button').map(button => button.textContent)).toEqual(['About Us', 'Services', 'Workshop', 'Products']);
     expect(nav.queryByRole('button', {name: 'Volunteering'})).toBeNull();
     let previous: HTMLElement | null = null;
-    for (const name of ['About Us', 'Services', 'Products', 'About Us', 'Programmes', 'Products', 'About Us']) {
+    for (const name of ['About Us', 'Services', 'Products', 'About Us', 'Workshop', 'Products', 'About Us']) {
       if (previous) fireEvent.pointerLeave(previous, {pointerType: 'mouse'});
       const trigger = nav.getByRole('button', {name});
       fireEvent.pointerEnter(trigger, {pointerType: 'mouse'});

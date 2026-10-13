@@ -1,0 +1,9 @@
+{
+  "mode": "built-in image_gen.imagegen background edit",
+  "edit_target": "public/media/archana-hero-sharp.webp",
+  "colour_reference": "public/media/antaraa-misty-river.webp",
+  "saved_asset": "public/media/archana-antaraa-forest.webp",
+  "used_by": "components/antaraa-banner.tsx",
+  "scope": "The ANTARAA homepage invitation portrait only. Keep the shared source portrait unchanged.",
+  "prompt": "Use case: identity-preserve. Image 1 is the EDIT TARGET: the existing full-length portrait of Dr Archana Nanduri in a white saree. Image 2 is a COLOUR AND ATMOSPHERE reference only, the site's misty green riverside background. Edit IMAGE 1 only. Replace ONLY its warm amber/brown background with a softly textured, atmospheric deep forest-green and muted sage backdrop, matching #21463b and #183d33, with subtle softly blurred forest/mist texture inspired by Image 2. Keep the background restrained and low-contrast so it blends naturally into a forest-green website section. Preserve the person exactly: same recognizable face, eyes, expression, bindi, hair and individual hair strands, skin tone, white lace saree, blouse, pearl necklace, jewellery, folded arms, hands, nails, pose and proportions. Preserve the original tall portrait framing and subject placement, with her complete head and hair visible and the same amount of space above her head. Do not change, beautify, redraw or retouch her face or clothing. Do not add green colour cast to her skin or saree. Keep her white saree natural white and preserve its lace detail. No added people, no objects, no flowers, no candles, no text, no logos, no watermark. Produce a sharp, realistic portrait background replacement suitable for the existing banner."
+}
