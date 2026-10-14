@@ -1,0 +1,16 @@
+/* Show the supplied logo as one complete artwork, including its original lettering.
+   The viewport removes only transparent canvas padding; the PNG stays unmodified. */
+.brand.brand-official{--brand-artwork-width:128px;gap:0;padding:0}
+.brand-official .brand-official-viewport{
+  display:block;position:relative;flex-shrink:0;overflow:hidden;
+  width:var(--brand-artwork-width);aspect-ratio:1382 / 1306;
+}
+.brand-official .brand-official-artwork{
+  position:absolute;display:block;max-width:none;
+  width:148.191028%;height:auto;left:-24.095514%;top:-28.407351%;
+}
+.masthead-brand .brand.brand-official{--brand-artwork-width:106px;padding:0}
+.brand.brand-footer.brand-official{--brand-artwork-width:108px}
+@media(max-width:1100px){
+  .mobile-header-brand .brand.brand-official{--brand-artwork-width:90px;padding:0}
+}
