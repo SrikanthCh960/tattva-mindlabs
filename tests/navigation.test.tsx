@@ -17,16 +17,74 @@ beforeAll(() => {
 afterEach(() => {cleanup(); window.history.replaceState({}, '', '/');});
 
 describe('Photographic navigation', () => {
+  const destinations = [
+    ['About Us', '/about/'], ['Services', '/services/'],
+    ['Workshop', '/programs/'], ['Products', '/products/'],
+  ] as const;
+
+  it('links each desktop title directly to its page and keeps its submenu on a separate button', async () => {
+    render(<Header/>);
+    const user = userEvent.setup();
+    const nav = within(screen.getByRole('navigation', {name: 'Main navigation'}));
+    for (const [name, href] of destinations) {
+      const link = nav.getByRole('link', {name});
+      const toggle = nav.getByRole('button', {name: `Open ${name} submenu`});
+      expect(link.getAttribute('href')?.replace(/\/$/, '')).toBe(href.replace(/\/$/, ''));
+      expect(link.hasAttribute('aria-expanded')).toBe(false);
+      expect(link.closest('button')).toBeNull();
+      await user.click(toggle);
+      expect(toggle.getAttribute('aria-expanded')).toBe('true');
+      // Inspect the native destination and close behavior without leaving jsdom.
+      link.addEventListener('click', event => event.preventDefault());
+      await user.click(link);
+      await waitFor(() => expect(toggle.getAttribute('aria-expanded')).toBe('false'));
+    }
+  });
+
+  it('opens a submenu from its keyboard control and returns focus after Escape', async () => {
+    render(<Header/>);
+    const user = userEvent.setup();
+    const nav = within(screen.getByRole('navigation', {name: 'Main navigation'}));
+    const toggle = nav.getByRole('button', {name: 'Open About Us submenu'});
+    toggle.focus();
+    await user.keyboard('[Space]');
+    expect(toggle.getAttribute('aria-expanded')).toBe('true');
+    await user.keyboard('{ArrowDown}');
+    await waitFor(() => expect(document.activeElement).toBe(nav.getByRole('link', {name: 'Our philosophy'})));
+    await user.keyboard('{Escape}');
+    await waitFor(() => expect(toggle.getAttribute('aria-expanded')).toBe('false'));
+    expect(document.activeElement).toBe(toggle);
+  });
+
+  it('keeps all four mobile page titles separate from their expandable submenu controls', async () => {
+    render(<Header/>);
+    const user = userEvent.setup();
+    for (const [name, href] of destinations) {
+      await user.click(screen.getByRole('button', {name: 'Open navigation'}));
+      const dialog = within(screen.getByRole('dialog'));
+      const link = dialog.getByRole('link', {name});
+      const toggle = dialog.getByRole('button', {name: `Open ${name} submenu`});
+      expect(link.getAttribute('href')?.replace(/\/$/, '')).toBe(href.replace(/\/$/, ''));
+      expect(link.closest('button')).toBeNull();
+      await user.click(toggle);
+      expect(toggle.getAttribute('aria-expanded')).toBe('true');
+      link.addEventListener('click', event => event.preventDefault());
+      await user.click(link);
+      await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull());
+    }
+  });
+
   it('opens on hover, switches groups, and supports keyboard entry and Escape', async () => {
     render(<Header/>);
     const user = userEvent.setup();
     const nav = within(screen.getByRole('navigation', {name: 'Main navigation'}));
-    const services = nav.getByRole('button', {name: 'Services'});
-    fireEvent.pointerEnter(services, {pointerType: 'mouse'});
-    fireEvent.pointerMove(services, {pointerType: 'mouse'});
+    const services = nav.getByRole('button', {name: 'Open Services submenu'});
+    const servicesLink = nav.getByRole('link', {name: 'Services'});
+    fireEvent.pointerEnter(servicesLink, {pointerType: 'mouse'});
+    fireEvent.pointerMove(servicesLink, {pointerType: 'mouse'});
     await waitFor(() => expect(services.getAttribute('aria-expanded')).toBe('true'));
     expect(nav.getByRole('link', {name: /Energy & stillness/}).getAttribute('href')).toMatch(/^\/services\/reiki-healing\/?$/);
-    const products = nav.getByRole('button', {name: 'Products'});
+    const products = nav.getByRole('button', {name: 'Open Products submenu'});
     fireEvent.pointerLeave(services, {pointerType: 'mouse'});
     fireEvent.pointerEnter(products, {pointerType: 'mouse'});
     fireEvent.pointerMove(products, {pointerType: 'mouse'});
@@ -50,7 +108,7 @@ describe('Photographic navigation', () => {
     expect(dialog.queryByRole('button', {name: 'Contact Us'})).toBeNull();
     expect(dialog.getByRole('link', {name: 'Explore'}).getAttribute('href')).toMatch(/^\/explore\/?$/);
     expect(dialog.getByRole('link', {name: 'Contact Us'}).getAttribute('href')).toMatch(/^\/contact\/?$/);
-    await user.click(dialog.getByRole('button', {name: 'About Us'}));
+    await user.click(dialog.getByRole('button', {name: 'Open About Us submenu'}));
     const interest = dialog.getByRole('link', {name: 'Volunteering'});
     expect(interest.getAttribute('href')).toMatch(/^\/volunteering\/?$/);
     // Keep jsdom from attempting a page navigation while exercising the close handler.
@@ -62,12 +120,12 @@ describe('Photographic navigation', () => {
   it('keeps panels populated on repeated hover switches and closes them over direct links', async () => {
     const {container} = render(<Header/>);
     const nav = within(screen.getByRole('navigation', {name: 'Main navigation'}));
-    expect(nav.getAllByRole('button').map(button => button.textContent)).toEqual(['About Us', 'Services', 'Workshop', 'Products']);
+    expect(nav.getAllByRole('button').map(button => button.getAttribute('aria-label'))).toEqual(['Open About Us submenu', 'Open Services submenu', 'Open Workshop submenu', 'Open Products submenu']);
     expect(nav.queryByRole('button', {name: 'Volunteering'})).toBeNull();
     let previous: HTMLElement | null = null;
     for (const name of ['About Us', 'Services', 'Products', 'About Us', 'Workshop', 'Products', 'About Us']) {
       if (previous) fireEvent.pointerLeave(previous, {pointerType: 'mouse'});
-      const trigger = nav.getByRole('button', {name});
+      const trigger = nav.getByRole('button', {name: `Open ${name} submenu`});
       fireEvent.pointerEnter(trigger, {pointerType: 'mouse'});
       fireEvent.pointerMove(trigger, {pointerType: 'mouse'});
       await waitFor(() => expect(trigger.getAttribute('aria-expanded')).toBe('true'));

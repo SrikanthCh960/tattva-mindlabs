@@ -1,0 +1,89 @@
+/* Shared reading width and type hierarchy. Keep page content and artwork intact. */
+:root {
+  --content-max: 72.5rem;
+  --page-gutter: clamp(3.5rem, 6vw, 6rem);
+  --section-title-size: clamp(2.875rem, 4.7vw, 4.25rem);
+  --section-label-size: clamp(1rem, 1.35vw, 1.125rem);
+  --card-title-size: clamp(1.875rem, 2.45vw, 2.25rem);
+}
+
+/* Keep the masthead and navigation panels at their existing widths. */
+#main .container,
+.site-footer .container {
+  width: min(var(--content-max), calc(100% - 2 * var(--page-gutter)));
+}
+
+#main .connect-banner {
+  /* Restore this photographic banner's original frame, without narrowing its portrait. */
+  width: 100%;
+  background: #f0e6d5;
+}
+
+#main .antaraa-hero-copy {
+  padding-inline-start: max(var(--page-gutter), calc((100vw - var(--content-max)) / 2));
+}
+
+body {
+  font-weight: 400;
+  font-kerning: normal;
+}
+
+/* Section titles share one scale; card titles retain a smaller, distinct level. */
+#main h2 {
+  font-size: var(--section-title-size);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  overflow-wrap: break-word;
+}
+
+#main :is(.section, .recognitions-heading, .volunteer-teaser-copy,
+  .volunteer-guidance, .volunteer-form-card) .eyebrow {
+  font-size: var(--section-label-size);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: .08em;
+}
+
+#main .values-grid article > span {
+  font-size: .9375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: .08em;
+}
+
+#main :is(.values-grid, .practice-card-copy, .prose-page) h2,
+#main :is(.pathway-body, .media-card, .related-card-copy,
+  .ritual-product, .dimension-grid, .volunteer-steps) h3,
+#main .detail-content > div > h3,
+#main .detail-aside h3 {
+  font-size: var(--card-title-size);
+  font-weight: 600;
+  line-height: 1.16;
+  letter-spacing: -.02em;
+  overflow-wrap: break-word;
+}
+
+#main :is(.contact-cta, .enquiry-card, .volunteer-form-card) h2,
+#main .antaraa-promo-message h2 {
+  font-size: clamp(2.625rem, 3.65vw, 3.5rem);
+}
+
+#main :is(.enquiry-ready, .volunteer-ready) h3 {
+  font-size: clamp(1.625rem, 2.5vw, 2rem);
+  line-height: 1.2;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --page-gutter: clamp(1.5rem, 5vw, 2.25rem);
+    --section-title-size: clamp(2.5rem, 8.6vw, 3.125rem);
+    --section-label-size: 1rem;
+    --card-title-size: clamp(1.875rem, 6.7vw, 2.25rem);
+  }
+
+  #main :is(.contact-cta, .enquiry-card, .volunteer-form-card) h2,
+  #main .antaraa-promo-message h2 {
+    font-size: clamp(2.375rem, 8.2vw, 2.875rem);
+  }
+}

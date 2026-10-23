@@ -14,6 +14,10 @@
 .mega-menu-trigger:is(:hover,[data-state=open],[data-current=true]):after{transform:scaleX(1)}
 .mega-menu-trigger svg{transition:transform .2s ease}
 .mega-menu-trigger[data-state=open] svg{transform:rotate(180deg)}
+.mega-menu-heading{display:flex;align-items:center;justify-content:center;height:100%}
+.mega-menu-heading .mega-menu-page-link{padding-right:0}
+.mega-menu-heading .mega-menu-dropdown-toggle{height:44px;min-width:36px;padding:0}
+.mega-menu-dropdown-toggle:after{display:none}
 .masthead-brand{display:flex;align-items:center;justify-content:center;list-style:none}
 .masthead-brand .brand{flex-direction:column;gap:0;text-align:center;padding:7px 0 9px}
 .masthead-brand .brand-symbol{width:64px;height:64px}
@@ -50,6 +54,10 @@
 .modern-mobile-sheet .mobile-group-content a{display:block;min-height:44px;padding:11px 0;font-family:var(--font-body),sans-serif;font-size:14px;line-height:1.6;border:0;color:#765c44}
 .modern-mobile-sheet .mobile-direct-menu-item{border-bottom:1px solid var(--line)}
 .modern-mobile-sheet nav .mobile-direct-menu-link{display:block;font-family:var(--font-editorial),Georgia,serif;font-size:29px;line-height:1.1;padding:17px 0;min-height:60px;border:0}
+.modern-mobile-sheet .mobile-group-heading{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center}
+.modern-mobile-sheet .mobile-group-page-link{display:block;min-width:0;padding:17px 0;font-family:var(--font-editorial),Georgia,serif;font-size:29px;line-height:1.1}
+.modern-mobile-sheet .mobile-group-trigger.mobile-group-toggle{align-items:center;justify-content:center;min-width:44px;min-height:60px;padding:0}
+.modern-mobile-sheet .mobile-group-page-link:focus-visible{outline:2px solid #a26737;outline-offset:3px}
 .modern-mobile-sheet>.button{flex-shrink:0}
 .modern-mobile-sheet .mobile-nav-note{font-size:10px;line-height:1.8}
 :is(#recognitions,#contribute,[id^=interview-],#bath-salts,#divine-vibrance){scroll-margin-top:135px}

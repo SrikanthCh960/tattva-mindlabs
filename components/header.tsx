@@ -1,6 +1,6 @@
 'use client';
 
-import {forwardRef, Fragment, useEffect, useState} from 'react';
+import {forwardRef, Fragment, useEffect, useRef, useState} from 'react';
 import type {ComponentPropsWithoutRef} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -26,25 +26,56 @@ export function Header() {
   const pathname = usePathname();
   const [active, setActive] = useState('');
   const [mobileOpen, setMobileOpen] = useState(false);
-  const closeMenus = () => {setActive(''); setMobileOpen(false);};
+  // One hover region covers the page link, submenu arrow, and dropdown panel.
+  const hoverTimer = useRef<number | undefined>(undefined);
+  const hoverTarget = useRef<string | null>(null);
+  const clearHover = () => {window.clearTimeout(hoverTimer.current); hoverTarget.current = null;};
+  const changeMenu = (value: string) => {clearHover(); setActive(value);};
+  const closeMenus = () => {changeMenu(''); setMobileOpen(false);};
+  const hoverMenu = (value: string) => {
+    if (active === value) {clearHover(); return;}
+    if (hoverTarget.current === value) return;
+    clearHover();
+    hoverTarget.current = value;
+    hoverTimer.current = window.setTimeout(() => {
+      hoverTarget.current = null;
+      setActive(value);
+    }, active ? 0 : 160);
+  };
+  const leaveMenu = (value: string) => {
+    clearHover();
+    hoverTimer.current = window.setTimeout(() => setActive(current => current === value ? '' : current), 150);
+  };
   const isCurrent = (href: string) => pathname === href.replace(/\/$/, '') || pathname.startsWith(href);
-  useEffect(() => {setActive(''); setMobileOpen(false);}, [pathname]);
+  useEffect(() => {
+    window.clearTimeout(hoverTimer.current); hoverTarget.current = null;
+    setActive(''); setMobileOpen(false);
+    return () => window.clearTimeout(hoverTimer.current);
+  }, [pathname]);
 
   return <>
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="site-header modern-site-header">
       <div className="container modern-header-container">
-        <NavigationMenu.Root className="mega-navigation" aria-label="Main navigation" value={active} onValueChange={setActive} delayDuration={160} skipDelayDuration={250}>
+        <NavigationMenu.Root className="mega-navigation" aria-label="Main navigation" value={active} onValueChange={changeMenu} activationMode="manual">
           <NavigationMenu.List className="mega-menu-list">
             <li className="masthead-brand"><Brand/></li>
             {menuGroups.map(group => <Fragment key={group.id}>
-              <NavigationMenu.Item value={group.id} className="mega-menu-item">
+              <NavigationMenu.Item value={group.id} className="mega-menu-item"
+                onPointerEnter={event => {if (group.kind === 'dropdown' && event.pointerType === 'mouse') hoverMenu(group.id);}}
+                onPointerMove={event => {if (group.kind === 'dropdown' && event.pointerType === 'mouse') hoverMenu(group.id);}}
+                onPointerLeave={event => {if (group.kind === 'dropdown' && event.pointerType === 'mouse') leaveMenu(group.id);}}>
                 {group.kind === 'link' ? <NavigationMenu.Link asChild onSelect={closeMenus}>
-                  <Destination href={group.href} className="mega-menu-trigger mega-menu-direct-link" aria-current={isCurrent(group.href) ? 'page' : undefined} data-current={isCurrent(group.href) ? 'true' : undefined} onPointerEnter={() => setActive('')} onFocus={() => setActive('')}>{group.label}</Destination>
+                  <Destination href={group.href} className="mega-menu-trigger mega-menu-direct-link" aria-current={isCurrent(group.href) ? 'page' : undefined} data-current={isCurrent(group.href) ? 'true' : undefined} onPointerEnter={closeMenus} onFocus={closeMenus}>{group.label}</Destination>
                 </NavigationMenu.Link> : <>
-                <NavigationMenu.Trigger className="mega-menu-trigger" data-current={isCurrent(group.href) ? 'true' : undefined}>
-                  {group.label}<ChevronDown size={13} aria-hidden="true"/>
-                </NavigationMenu.Trigger>
+                <div className="mega-menu-heading">
+                  <NavigationMenu.Link asChild onSelect={closeMenus}>
+                    <Destination href={group.href} className="mega-menu-trigger mega-menu-page-link" aria-current={isCurrent(group.href) ? 'page' : undefined} data-current={isCurrent(group.href) ? 'true' : undefined} data-state={active === group.id ? 'open' : 'closed'}>{group.label}</Destination>
+                  </NavigationMenu.Link>
+                  <NavigationMenu.Trigger className="mega-menu-trigger mega-menu-dropdown-toggle" aria-label={`Open ${group.label} submenu`} data-current={isCurrent(group.href) ? 'true' : undefined}>
+                    <ChevronDown size={13} aria-hidden="true"/>
+                  </NavigationMenu.Trigger>
+                </div>
                 <NavigationMenu.Content className="mega-menu-content" data-lenis-prevent>
                   <div className="container mega-panel">
                     <div className="mega-panel-intro">
@@ -92,7 +123,10 @@ export function Header() {
                   {menuGroups.map(group => group.kind === 'link' ? <div className="mobile-direct-menu-item" key={group.id}>
                     <Destination href={group.href} className="mobile-direct-menu-link" onClick={closeMenus} aria-current={isCurrent(group.href) ? 'page' : undefined}>{group.label}</Destination>
                   </div> : <AccordionItem value={group.id} key={group.id}>
-                    <AccordionTrigger className="mobile-group-trigger">{group.label}</AccordionTrigger>
+                    <div className="mobile-group-heading">
+                      <Destination href={group.href} className="mobile-group-page-link" onClick={closeMenus} aria-current={isCurrent(group.href) ? 'page' : undefined}>{group.label}</Destination>
+                      <AccordionTrigger className="mobile-group-trigger mobile-group-toggle" aria-label={`Open ${group.label} submenu`}/>
+                    </div>
                     <AccordionContent className="mobile-group-content">
                       <ul>{group.links.map(item => <li key={item.href}><Destination href={item.href} onClick={closeMenus}>{item.label}</Destination></li>)}</ul>
                     </AccordionContent>

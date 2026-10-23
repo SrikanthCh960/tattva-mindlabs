@@ -1,0 +1,22 @@
+{
+  "label": "TATTVA-HOME-HERO-BEFORE-FULL-PORTRAIT-2026-10-22",
+  "created_date": "2026-10-22",
+  "scope": "Homepage EditorialHero only",
+  "source_commit": "a5d9dd8c6655b05f2429d509991195bf406d1b19",
+  "site_project_id": "appgprj_6ac67cb610f4819196a0f35271719e64",
+  "site_version": 28,
+  "site_version_id": "appgprj_6ac67cb610f4819196a0f35271719e64~appgver_da7c84378e4c8191b6a4255ab5c2b4f3",
+  "original_component": "components/editorial-hero.tsx",
+  "snapshot_file": "editorial-hero.tsx",
+  "snapshot_sha256": "c436f80893be7b8269e4bd07c8170bcd9565286090868d2017959d42acbdc416",
+  "original_image": "public/media/archana-hero-sharp.webp",
+  "original_image_sha256": "87e1d0eca119a1a02adbec261c55c3cf08f841622abb514522ca52374c1c67bc",
+  "restore_instructions": [
+    "Checkpoint any later work before restoring.",
+    "Restore only components/editorial-hero.tsx from the saved snapshot; its full-portrait stylesheet import and presentation changes will be removed.",
+    "Remove components/home-hero-full-portrait.css only if unused.",
+    "Do not restore app/redesign.css, app/readability.css, the whole source tree, or other pages.",
+    "Keep this checkpoint and all later unrelated updates.",
+    "Build, verify the scoped change, and publish only to the same ChatGPT site. Do not push to GitHub without a new instruction."
+  ]
+}

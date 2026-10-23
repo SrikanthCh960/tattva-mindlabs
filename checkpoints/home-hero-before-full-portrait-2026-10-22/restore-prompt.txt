@@ -1,0 +1,1 @@
+Restore only the homepage banner to checkpoint TATTVA-HOME-HERO-BEFORE-FULL-PORTRAIT-2026-10-22 (the close-up version). Keep all other website updates unchanged, including the menu, typography, spacing and Connect banner. Publish only to the ChatGPT site. Do not push to GitHub.
